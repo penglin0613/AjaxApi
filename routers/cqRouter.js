@@ -155,7 +155,7 @@ router.get('/page', (req, res) => {
       }
 
       // 计算总页数
-      const totalPage = Math.ceil(filterHero.length / pageSize)
+      const totalPage = Math.ceil(filterHero.length / pageSize)-1
       // 判断索引是否越界
       if (pageNum > totalPage) {
         res.send({
@@ -171,7 +171,7 @@ router.get('/page', (req, res) => {
       }
       // 获取 数据
       let list = []
-      for (let i = startIndex; i <= endIndex; i++) {
+      for (let i = startIndex; i < endIndex; i++) {
         list.push(filterHero[i])
       }
 
